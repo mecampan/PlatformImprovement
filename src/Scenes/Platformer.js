@@ -76,12 +76,12 @@ class Platformer extends Phaser.Scene {
         });
 
         my.vfx.waterSplash = this.add.particles(0, 0, "kenny-particles", {
-            frame: ['star_09.png', 'star_08.png'],
+            frame: ['muzzle_02.png', 'muzzle_03.png'],
             random: true,
-            scale: { start: 0.03, end: 0.1 },
+            scale: { start: 0.2, end: 0.1 },
             maxAliveParticales: 8,
-            lifespan: 150,
-            gravityY: - 400,
+            lifespan: 350,
+            gravityY: - 500,
             alpha: { start: 1, end: 0.1 },
         });
 
@@ -90,7 +90,7 @@ class Platformer extends Phaser.Scene {
         // Handle collision detection with water
         this.physics.add.overlap(my.sprite.player, this.waterGroup, (obj1, obj2) => {
             if (!my.sprite.player.desu) {
-                my.vfx.waterSplash.emitParticleAt(obj2.x, obj2.y, 10);
+                my.vfx.waterSplash.emitParticleAt(obj2.x, obj2.y-15, 10);
                 this.respawn();
             }
         });
