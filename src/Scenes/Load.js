@@ -59,6 +59,20 @@ class Load extends Phaser.Scene {
             ],
         });
 
+        this.anims.create({
+            key: 'coinSpin',
+            frames: this.anims.generateFrameNumbers('tilemap_sheet', { frames: [151, 152] }),
+            frameRate: 5,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'waterMotion',
+            frames: this.anims.generateFrameNumbers('tilemap_sheet', { frames: [53, 33] }),
+            frameRate: 5,
+            repeat: -1
+        });        
+
          // ...and pass to the next Scene
          this.scene.start("platformerScene");
     }
